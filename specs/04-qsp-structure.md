@@ -1,6 +1,6 @@
 # SPEC — Estructura Separada Backend / Frontend para qspargentina_cloud (SDD Spec-First)
 
-> **Status:** Draft | **Method:** Spec-Driven Development (SDD) | **Single Source of Truth
+> **Status:** Approved | **Method:** Spec-Driven Development (SDD) | **Single Source of Truth
 > **Depends on:** `specs/sdd-argocd-dashboard.md`, `specs/03-qsp-backend.md`
 > **Date:** 2026-08-27
 
