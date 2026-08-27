@@ -64,4 +64,5 @@ Visión / Playwright (pantallas creadas):
 
 - Solo lee `specs/sdd-*.md`; nunca inventa requisitos.
 - Solo opera sobre `qspargentina/`; no modifica docs ni env en este repo.
+- **Regla obligatoria para todo `/spec-impl`**: validar **backend** (`tests/backend/` + contrato + env server-side) y **frontend** (`QspResourceTree` + referencia `extructura_base/structura_base.png`) antes de marcar `[x]`. No se aprueba un spec sin ambos.
 - Marca checks; si falla, reporta qué sección de la spec se viola (`Data model`, `Edge cases`, `Integration contracts`).

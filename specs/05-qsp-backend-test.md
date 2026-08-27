@@ -1,6 +1,6 @@
 # SPEC — Prueba Lógica / Smoke Test del Backend Qsp CD (SDD Spec-First)
 
-> **Status:** Draft | **Method:** SDD | **Single Source of Truth
+> **Status:** Approved | **Method:** SDD | **Single Source of Truth
 > **Depends on:** `specs/03-qsp-backend.md`, `specs/04-qsp-structure.md`
 > **Date:** 2026-08-27
 

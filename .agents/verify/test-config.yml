@@ -1,0 +1,7 @@
+# Configuración de pruebas / TestingFramework para QSP_CLOUD
+TestingFramework: "Jest + Playwright + Shell (smoke)"
+RequireTestCoverage: true
+TestDirectories:
+  - "tests/backend"
+  - "tests/frontend"
+GherkinSyntax: true
