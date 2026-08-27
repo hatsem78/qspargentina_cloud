@@ -1,0 +1,32 @@
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies / environments
+node_modules/
+.env
+.env.local
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Build / output
+dist/
+build/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary / backup
+*.tmp
+*.bak
+*.orig
