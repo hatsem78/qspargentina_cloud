@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  floci:
+    image: floci/cloud:latest
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-}
+    ports:
+      - "${FLOCI_PORT:-6443}:6443"
+  qsp-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    environment:
+      - QSP_CD_TOKEN=${QSP_CD_TOKEN}
+      - QSP_CD_URL=${QSP_CD_URL:-http://localhost:8080}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-}
+    ports:
+      - "${QSP_PORT:-8080}:${QSP_PORT:-8080}"
+    depends_on:
+      - floci
+    volumes:
+      - ./src:/app/src
+  qsp-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://qsp-backend:${QSP_PORT:-8080}
+    ports:
+      - "${NEXT_PORT:-3000}:${NEXT_PORT:-3000}"
+    depends_on:
+      - qsp-backend
+    volumes:
+      - ./src:/app/src
