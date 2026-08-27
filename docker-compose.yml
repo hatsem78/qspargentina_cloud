@@ -39,6 +39,19 @@ services:
     volumes:
       - ./src:/app/src
       - ./tests:/app/tests
+  qsp-test-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://qsp-backend:${QSP_PORT:-8080}
+    depends_on:
+      - qsp-backend
+    command: ["bash", "/app/tests/frontend/test-lucide.sh"]
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+      - ./package.json:/app/package.json
   qsp-frontend:
     build:
       context: .
@@ -51,3 +64,14 @@ services:
       - qsp-backend
     volumes:
       - ./src:/app/src
+  qsp-verify-visual:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://qsp-backend:${QSP_PORT:-8080}
+    depends_on:
+      - qsp-backend
+    command: ["bash", "-c", "npm ci && npm run test:visual || echo 'TEST_VISUAL_FAILED'"]
+    volumes:
+      - .:/app

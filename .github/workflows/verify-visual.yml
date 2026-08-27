@@ -1,0 +1,20 @@
+name: Verify Visual
+on:
+  push:
+    paths:
+      - 'specs/**'
+      - 'src/components/QspResourceTree.tsx'
+      - 'tests/visual/**'
+      - 'src/app/page.tsx'
+  pull_request:
+    paths:
+      - 'specs/**'
+      - 'tests/visual/**'
+
+jobs:
+  visual-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run visual check in container
+        run: docker-compose run --rm qsp-verify-visual

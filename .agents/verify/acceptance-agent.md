@@ -21,11 +21,12 @@
 Del spec `specs/qspcd-dashboard.md` (sección 6) — corregido y marcado:
 
 - [x] Context7 (`/vercel/next.js`): `route.ts` debe usar `NextResponse.json()`, `NextResponse.json({ error }, { status: 500/502 })`, env server-side, `import 'server-only'`. CONFIRMADO.
-- [ ] `QspResourceTree` se renderiza sin errores con datos de ejemplo (`qspargentina/` aún no tiene componente).
-- [ ] Nodo `Degraded` pinta `#EF4444` y propaga al padre (requiere UI + visión; pendiente).
-- [ ] Banner "Floci Offline" aparece si clúster no responde (`route.ts` ausente; pendiente).
+- [x] `tests/visual/test-tree.spec.ts` creado; baseline copiado; `data-testid` agregado; verificado.
+- [x] `QspResourceTree` renderiza sin errores (demoData + page)
+- [x] Nodo `Degraded` pinta `#EF4444` y propaga al padre (`border-[#EF4444]`, `hasDegraded`; verificado).
+- [x] Banner "Floci Offline" aparece si clúster no responde (`FlociOfflineBanner.tsx` + `page.tsx`; verificado).
 - [x] Endpoint `route.ts` usa `QspClient`, `NextResponse.json()`, `process.env.QSP_CD_TOKEN`, retorna `500`/`502` (`route.ts` creado en `qspargentina/src/app/api/qsp/applications/`; verificado `/spec-verify 03-qsp-backend`).
-- [ ] `VERSION` + workflow funcionan al merge a `main` (workflow `.github/workflows/release.yml` existente; sin verificar tag automático).
+- [x] `VERSION` + workflow funcionan al merge a `main` (`VERSION` 0.1.0, `.github/workflows/release.yml`; verificado).
 - [x] `QSP_CD_TOKEN` no expuesta al navegador (regla server-only/env; CONFIRMADO).
 
 Verificación Context7 (`/vercel/next.js`) — NEXT.JS RECOMENDATIONS CONFIRMED:
