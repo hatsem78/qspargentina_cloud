@@ -1,6 +1,6 @@
 # SPEC 09 — Aceptación Funcional Completa (Dashboard + API + Visual)
 
-> **Status:** Draft
+> **Status:** Approved
 > **Depends on:** SPEC 01 (`argocd-dashboard.md`), SPEC 07 (`07-visual-check.md`), SPEC 08 (`08-integration-floci.md`)
 > **Date:** 2026-08-27
 > **Objective:** Confirmar que el sistema completo (Next.js dashboard + Qsp CD API + Floci + Playwright visual) cumple todos los criterios de aceptación y está listo para tag/release.

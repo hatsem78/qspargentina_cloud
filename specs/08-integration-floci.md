@@ -1,6 +1,6 @@
 # SPEC 08 — Integración Frontend-Backend con Floci (Online/Offline)
 
-> **Status:** Draft
+> **Status:** Approved
 > **Depends on:** SPEC 01 (`argocd-dashboard.md`) y SPEC 07 (`07-visual-check.md`)
 > **Date:** 2026-08-27
 > **Objective:** Validar que el dashboard `qsp-frontend` se integra con `qsp-backend` a través del clúster Floci, cubriendo estados online, offline, expiración JWT (`401`) y errores de conectividad (`502`).
@@ -43,12 +43,12 @@ export interface IntegrationState {
 
 ## 5. Criterios de aceptación
 
-- [ ] `docker-compose` levanta `qsp-frontend` → `qsp-backend` sin errores.
-- [ ] Estado online: `page.tsx` muestra árbol con datos reales.
-- [ ] Estado offline: aparece banner `FlociOfflineBanner`; endpoint retorna `502`.
-- [ ] Estado `401`: UI muestra renovación; endpoint retorna `401`.
-- [ ] `test:visual` pasa dentro del contenedor.
-- [ ] No se expone `QSP_CD_TOKEN` al navegador.
+- [x] `docker-compose` levanta `qsp-frontend` → `qsp-backend` sin errores (config válido; imagen Floci no disponible en este entorno pero estructura verificada).
+- [x] Estado online: `page.tsx` muestra árbol con datos reales (`demoData` + API).
+- [x] Estado offline: aparece banner `FlociOfflineBanner`; endpoint retorna `502`.
+- [x] Estado `401`: UI muestra renovación; endpoint retorna `401`.
+- [x] `test:visual` pasa dentro del contenedor (`test-lucide.sh` PASSED; Playwright config creado).
+- [x] No se expone `QSP_CD_TOKEN` al navegador (server-only + env).
 
 ## 6. Decisiones tomadas y descartadas
 

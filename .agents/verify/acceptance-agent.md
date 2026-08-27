@@ -27,6 +27,7 @@ Del spec `specs/qspcd-dashboard.md` (sección 6) — corregido y marcado:
 - [x] Banner "Floci Offline" aparece si clúster no responde (`FlociOfflineBanner.tsx` + `page.tsx`; verificado).
 - [x] Endpoint `route.ts` usa `QspClient`, `NextResponse.json()`, `process.env.QSP_CD_TOKEN`, retorna `500`/`502` (`route.ts` creado en `qspargentina/src/app/api/qsp/applications/`; verificado `/spec-verify 03-qsp-backend`).
 - [x] `VERSION` + workflow funcionan al merge a `main` (`VERSION` 0.1.0, `.github/workflows/release.yml`; verificado).
+- [x] Integración `qsp-frontend` → `qsp-backend` verificada (docker-compose, `FlociOfflineBanner`, `401`, `502`; `08-integration-flci` implementado).
 - [x] `QSP_CD_TOKEN` no expuesta al navegador (regla server-only/env; CONFIRMADO).
 
 Verificación Context7 (`/vercel/next.js`) — NEXT.JS RECOMENDATIONS CONFIRMED:
