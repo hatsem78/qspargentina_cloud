@@ -17,6 +17,11 @@
 - UI component: `ArgoResourceTree`; prop `ArgoApplication`; nodes: root (app, git repo, branch/revision), children (Sync state, Health state); colors: Healthy=green/check-circle, Progressing=blue/yellow+rotate, Degraded=red/alert; use Lucide React icons; Tailwind cards (`shadow-sm`, rounded); responsive.
 - Style source: `/home/ramiro/CURSOS/qspargentina` (admin styles/logos).
 
+## Agents / SDD Mode (OpenCode)
+
+- **Plan Mode (Spec Architect)**: Valida arquitectura, API de Argo CD (`/api/v1/applications`), límites de Floci y datos de dominio (`ResourceNode`). No toca código; fuente única de verdad = `specs/sdd-argocd-dashboard.md`.
+- **Build Mode (Software Engineer)**: Lee la Spec como ancla estricta. Escribe servicios (`argoClient.ts`) y componentes (`ArgoResourceTree.tsx`) en `/home/ramiro/CURSOS/qspargentina`; nunca expone `ARGO_CD_TOKEN` al navegador; retorna `500`/`502` en fallos.
+
 ## Verification in this repo
 
 - Read `README.md` for exact prompt wording; do not invent file paths or env names.
