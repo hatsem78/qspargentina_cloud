@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
     "lucide-react": "^0.400.0",
     "next": "14.2.0",
     "@playwright/test": "^1.45.0",
@@ -12,7 +13,7 @@
     "react-dom": "^18.3.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "next dev",
     "test:lucide": "bash tests/frontend/test-lucide.sh",
     "test:visual": "playwright test tests/visual/test-tree.spec.ts"
   }

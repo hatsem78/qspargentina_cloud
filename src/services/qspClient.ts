@@ -78,13 +78,24 @@ export class QspClient {
         kind: 'Application',
         healthStatus: mapHealthStatus(app.status?.health?.status),
         syncStatus: mapSyncStatus(app.status?.sync?.status),
-        children: app.status?.resources?.map((r): ResourceNode => ({
-          id: `${r.kind}/${r.name}`,
-          name: r.name,
-          kind: (r.kind as ResourceNode['kind']) || 'Pod',
-          healthStatus: 'Unknown',
-          syncStatus: 'Unknown',
-        })),
+        age: app.status?.sync?.revision ? 'main' : undefined,
+        children: [
+          {
+            id: `${app.metadata.name}/repo`,
+            name: app.spec?.source?.repoURL || 'git repo',
+            kind: 'GVC',
+            healthStatus: mapHealthStatus(app.status?.health?.status),
+            syncStatus: mapSyncStatus(app.status?.sync?.status),
+            age: app.spec?.source?.targetRevision || 'branch/revision',
+          },
+          ...(app.status?.resources?.map((r): ResourceNode => ({
+            id: `${r.kind}/${r.name}`,
+            name: r.name,
+            kind: (r.kind as ResourceNode['kind']) || 'Pod',
+            healthStatus: mapHealthStatus(r.status || 'Unknown'),
+            syncStatus: mapSyncStatus(app.status?.sync?.status || 'Unknown'),
+          })) || []),
+        ],
       }));
     } catch (err) {
       if (err instanceof Error && err.message.includes('Floci')) throw err;
