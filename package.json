@@ -13,7 +13,7 @@
     "react-dom": "^18.3.0"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "vite",
     "test:lucide": "bash tests/frontend/test-lucide.sh",
     "test:visual": "playwright test tests/visual/test-tree.spec.ts"
   }
